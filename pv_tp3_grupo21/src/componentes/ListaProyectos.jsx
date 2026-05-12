@@ -2,11 +2,19 @@ import { useState } from "react"
 import proyectoService from "../services/proyectoService"
 
 const ListaProyectos = () => {
-    const [proyectos, setProyectos] = useState(proyectoService.obtenerProyectos()); 
+    const [proyectos, setProyectos] = useState(proyectoService.obtenerProyectos());
+
+    const [buscar, setBuscar] = useState("");
     
     const handleEliminar = (id) => {
         proyectoService.eliminarProyecto(id);
         setProyectos(proyectoService.obtenerProyectos());
+    }
+
+    const handleBuscar = (e) => {
+        const valor = e.target.value;
+        setBuscar(valor);
+        setProyectos(proyectoService.buscarProyecto(valor));
     }
 
 
@@ -15,7 +23,9 @@ const ListaProyectos = () => {
         <h2>Gestión de Proyectos Educativos</h2>
         <section className="form-section">
             <form className="project-form">
+                <input type="text" placeholder="Buscar por título..." value={buscar} onChange={handleBuscar} className="input-buscar"/>
                 {/* <input aca va lo que ingresamos para buscar*/}
+                <button type="button" className="bnt-buscar">Agregar Proyecto</button>
                 {/* button para agregar nuevo proyecto */}
             </form>
         </section>
