@@ -20,7 +20,9 @@ const ListaProyectos = () => {
 
    return (
     <div className="container">
-        <h2>Gestión de Proyectos Educativos</h2>
+              <h2 style={{ color: "#222" }}>
+         Gestión de Proyectos Educativos
+        </h2>
         <section className="form-section">
             <form className="project-form">
                 <input type="text" placeholder="Buscar por título..." value={buscar} onChange={handleBuscar} className="input-buscar"/>
