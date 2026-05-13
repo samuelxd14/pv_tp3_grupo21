@@ -19,7 +19,7 @@ const ListaProyectos = () => {
         setProyectos(proyectoService.buscarProyecto(valor));
     }
 
-    const handleAgregar = () => {
+    const handleAgregar = (e) => {
         e.preventDefault();
         const nuevoProyecto = {
             id: Date.now(),
