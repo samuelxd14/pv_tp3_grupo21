@@ -19,7 +19,7 @@ const proyectoService = ( () => {
     };
 
     const buscarProyecto = (texto) => {
-        proyectos.filter(p => p.titulo.toLowerCase().includes(texto.toLowerCase()));
+        return proyectos.filter(p => p.titulo.toLowerCase().includes(texto.toLowerCase()));
     };
 
     return {obtenerProyectos, agregarProyecto, eliminarProyecto, buscarProyecto};
